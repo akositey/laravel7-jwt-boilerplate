@@ -32,7 +32,7 @@ class AuthTest extends TestCase
         $response = $this->json('POST',route('api.register'), $goodUserData);
         //for debugging
         if($response->status() !== 200){
-            dump($response->getContent());
+            dd($response->getContent());
         }
         //Assert that it is successful
         $response->assertStatus(200);
@@ -55,7 +55,7 @@ class AuthTest extends TestCase
         $response = $this->json('POST',route('api.register'), $badUserData);
         //for debugging
         if($response->status() !== 422){
-            dump($response->getContent());
+            dd($response->getContent());
         }
         //Assert that it is NOT successful
         $response->assertStatus(422);
@@ -75,7 +75,7 @@ class AuthTest extends TestCase
         $response = $this->json('POST',route('api.register'), $badUserData);
         //for debugging
         if($response->status() !== 422){
-            dump($response->getContent());
+            dd($response->getContent());
         }
         //Assert that it is NOT successful, because the password confirmation does not match
         $response->assertStatus(422);
@@ -99,7 +99,7 @@ class AuthTest extends TestCase
         ]);
         //for debugging
         if($response->status() !== 200){
-            dump($response->getContent());
+            dd($response->getContent());
         }
         //Assert that it succeeded and received the token
         $response->assertStatus(200);
@@ -123,7 +123,7 @@ class AuthTest extends TestCase
         ]);
         //for debugging
         if($response->status() !== 422){
-            dump($response->getContent());
+            dd($response->getContent());
         }
         //Assert that it did NOT succeed because email is invalid
         $response->assertStatus(422);
@@ -145,7 +145,7 @@ class AuthTest extends TestCase
         ]);
         //for debugging
         if($response->status() !== 401){
-            dump($response->getContent());
+            dd($response->getContent());
         }
         //Assert that it did NOT succeed because email is invalid
         $response->assertStatus(401);
@@ -164,7 +164,7 @@ class AuthTest extends TestCase
         ]);
         //for debugging
         if($response->status() !== 401){
-            dump($response->getContent());
+            dd($response->getContent());
         }
         //Assert that it did NOT succeed because email is invalid
         $response->assertStatus(401);
